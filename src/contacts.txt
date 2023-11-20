@@ -1,0 +1,5 @@
+Name,Surname,Mobile,Phone,Email,Street,Street_Number,Town,ZipCode
+Tejdeep,Gutta,94,49,check@gmail.com,street1,1,town1,560100
+john,doe,456,112,john@example.com,Street,42,Town,12345
+some,name,654,211,check@example.com,sStreet,62,trown,12645
+Meda,Madhav,4,43,madhav@meda.com,adem,5,vone,450605
