@@ -16,8 +16,8 @@ import java.util.Scanner;
 
 
 public class Search {
-    public static void choose_field() throws FileNotFoundException, IOException {
-        Scanner input = new Scanner(System.in);
+    public static void choose_field(Scanner input) throws FileNotFoundException, IOException {
+//        Scanner input = new Scanner(System.in);
         int exit = 0;
         int answer;
         //we will loop until user wants to exit the application
@@ -26,19 +26,21 @@ public class Search {
             System.out.println("Give '1' or '2' or anser '0' to return to main menu.");
             try {
                 answer = input.nextInt();
+//                String choice = input.nextLine();
+//                answer = Integer.parseInt(choice);
             } catch (Exception e) {
                 answer = 0;
             }
             if(answer == 1)//according to user's input i go to the correct method
-                name_search();
+                name_search(input);
             else if(answer == 2)
-                number_search();
+                number_search(input);
 
         }while(answer != exit);
     }
 
-    public static void name_search() throws IOException, FileNotFoundException{
-        Scanner input= new Scanner(System.in);
+    public static void name_search(Scanner input) throws IOException, FileNotFoundException{
+//        Scanner input= new Scanner(System.in);
         String f1,f2;
         System.out.println("Give Name: ");
         f1 = input.nextLine();
@@ -79,14 +81,15 @@ public class Search {
         }
         System.out.println("-------------------");
         reader.close();
-        choose_field();
+        choose_field(input);
     }
 
-    public static void number_search() throws IOException, FileNotFoundException{
-        Scanner input= new Scanner(System.in);
+    public static void number_search(Scanner input) throws IOException, FileNotFoundException{
+//        Scanner input= new Scanner(System.in);
         int f1 = -1;
         int f2 = -1;
         boolean valid;
+        input.nextLine();
         System.out.println("Give Phone number: ");
         do {//this is a do-while loop in which I check for valid input (must me integer)
             valid = true;
@@ -97,7 +100,7 @@ public class Search {
                 System.out.println("Phone number must be number.");
                 valid = false;
             }
-        }while(valid == false);
+        }while(!valid);
         System.out.println("Give mobile number: ");
         do {
             valid = true;
@@ -108,7 +111,7 @@ public class Search {
                 System.out.println("Mobile number must be number.");
                 valid = false;
             }
-        }while(valid == false);
+        }while(!valid);
         File file = new File(System.getProperty("user.dir")+"/src/contacts.txt");
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String currentLine;
@@ -168,8 +171,6 @@ public class Search {
 
         System.out.println("-------------------");
         reader.close();
-        choose_field();
+        choose_field(input);
     }
-
-
 }

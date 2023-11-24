@@ -87,7 +87,7 @@ public class Main {
                 if (answer == 1)
                     Add.add_contact(input);
                 else if (answer == 2)
-                    Search.choose_field();
+                    Search.choose_field(input);
                 else if (answer == 3)
                     Print.show_contacts();
                 else if (answer == 4)
