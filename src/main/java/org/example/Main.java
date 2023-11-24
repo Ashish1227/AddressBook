@@ -93,7 +93,7 @@ public class Main {
                 else if (answer == 4)
                     Change.choose_field();
                 else if (answer == 5)
-                    Delete.choose_field();
+                    Delete.choose_field(input);
 
             } while (answer != exit);
 

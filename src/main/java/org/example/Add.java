@@ -62,6 +62,7 @@ public class Add extends Main{
         f1 = getNextLine(input);
         System.out.println("Give Surname: ");
         f2 = getNextLine(input);
+
         do {//this is a do-while loop in which I check for valid input (must me integer) and i loop through the txt file again to check if input is duplicate
             duplicate = false;
             valid = true;

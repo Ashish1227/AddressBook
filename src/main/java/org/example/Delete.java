@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Delete {
-    public static void choose_field() throws FileNotFoundException, IOException {
-        Scanner input = new Scanner(System.in);
+    public static void choose_field(Scanner input) throws FileNotFoundException, IOException {
+//        Scanner input = new Scanner(System.in);
         int exit = 0;
         int answer;
         //we will loop until user wants to exit the application
@@ -19,24 +19,27 @@ public class Delete {
             System.out.println("Give '1', '2' or '0' to go back to main menu.");
             try {
                 answer = input.nextInt();
+                input.nextLine();
             } catch (Exception e) {
                 answer = 0;
             }
             if(answer == 1)
-                name_search();
+                name_search(input);
             else if(answer == 2)
-                number_search();
+                number_search(input);
 
         }while(answer != exit);
     }
 
-    public static void name_search() throws IOException, FileNotFoundException{
-        Scanner input= new Scanner(System.in);
+    public static void name_search(Scanner input) throws IOException, FileNotFoundException{
+//        Scanner input= new Scanner(System.in);
         String f1,f2;
         System.out.println("Give Name: ");
         f1 = input.nextLine();
+//        f1 = getNextLine(input);
         System.out.println("Give Surname: ");
         f2 = input.nextLine();
+//        f2 = getNextLine(input);
         File file = new File(System.getProperty("user.dir")+"/src/contacts.txt");
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String currentLine;
@@ -80,11 +83,17 @@ public class Delete {
         for(Object str:lines){//for every contatc that i found that is a match
             contact_delete(str.toString());
         }
-        choose_field();
+        choose_field(input);
     }
-
-    public static void number_search() throws IOException, FileNotFoundException{
-        Scanner input= new Scanner(System.in);
+    private static String getNextLine(Scanner scanner) {
+        String line = "";
+        while (line.isEmpty()) {
+            line = scanner.nextLine().trim();
+        }
+        return line;
+    }
+    public static void number_search(Scanner input) throws IOException, FileNotFoundException{
+//        Scanner input= new Scanner(System.in);
         int f1 = -1;
         int f2 = -1;
         boolean valid;
@@ -172,7 +181,7 @@ public class Delete {
 
         System.out.println("-------------------");
         reader.close();
-        choose_field();
+        choose_field(input);
     }
 
     public static void contact_delete(String line)  throws IOException, FileNotFoundException{
