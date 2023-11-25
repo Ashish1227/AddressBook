@@ -59,47 +59,51 @@ import java.util.Scanner;
 import java.io.IOException;
 
 public class Main {
+    public static String hello(){ //simply returns "Hello World"
+        return "Hello World";
+    }
     public static void main(String[] args) throws IOException {
-        Scanner input = new Scanner(System.in);
-        int exit = 0;
-        int answer;
-
-        try {
-            do {
-                System.out.println("--------Welcome to Address Book---------");
-                System.out.println("Enter '1' to Add contact");
-                System.out.println("Enter '2' to Search contact");
-                System.out.println("Enter '3' to Print contact");
-                System.out.println("Enter '4' to Edit contact");
-                System.out.println("Enter '5' to Delete contact");
-                System.out.println("Enter '0' to Exit");
-                System.out.println("Do you want to print contacts, add contact, search for contact, edit contact, or delete contact?");
-                System.out.println("Answer with '1', '2', '3', '4', '5' or '0' to exit application.");
-
-                try {
-                    answer = input.nextInt();
-                } catch (InputMismatchException e) {
-                    System.out.println("Invalid input. Please enter a valid number.");
-                    input.next(); // Consume the invalid input to avoid an infinite loop
-                    answer = -1;
-                }
-
-                if (answer == 1)
-                    Add.add_contact(input);
-                else if (answer == 2)
-                    Search.choose_field(input);
-                else if (answer == 3)
-                    Print.show_contacts();
-                else if (answer == 4)
-                    Change.choose_field();
-                else if (answer == 5)
-                    Delete.choose_field(input);
-
-            } while (answer != exit);
-
-            System.out.println("Application terminating...");
-        } finally {
-            input.close(); // Close the scanner in the finally block
-        }
+//        Scanner input = new Scanner(System.in);
+//        int exit = 0;
+//        int answer;
+//
+//        try {
+//            do {
+//                System.out.println("--------Welcome to Address Book---------");
+//                System.out.println("Enter '1' to Add contact");
+//                System.out.println("Enter '2' to Search contact");
+//                System.out.println("Enter '3' to Print contact");
+//                System.out.println("Enter '4' to Edit contact");
+//                System.out.println("Enter '5' to Delete contact");
+//                System.out.println("Enter '0' to Exit");
+//                System.out.println("Do you want to print contacts, add contact, search for contact, edit contact, or delete contact?");
+//                System.out.println("Answer with '1', '2', '3', '4', '5' or '0' to exit application.");
+//
+//                try {
+//                    answer = input.nextInt();
+//                } catch (InputMismatchException e) {
+//                    System.out.println("Invalid input. Please enter a valid number.");
+//                    input.next(); // Consume the invalid input to avoid an infinite loop
+//                    answer = -1;
+//                }
+//
+//                if (answer == 1)
+//                    Add.add_contact(input);
+//                else if (answer == 2)
+//                    Search.choose_field(input);
+//                else if (answer == 3)
+//                    Print.show_contacts();
+//                else if (answer == 4)
+//                    Change.choose_field();
+//                else if (answer == 5)
+//                    Delete.choose_field(input);
+//
+//            } while (answer != exit);
+//
+//            System.out.println("Application terminating...");
+//        } finally {
+//            input.close(); // Close the scanner in the finally block
+//        }
+    Main.hello();
     }
 }

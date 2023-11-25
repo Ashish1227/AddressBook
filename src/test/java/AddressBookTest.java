@@ -275,4 +275,35 @@ public class AddressBookTest {
 
         tearDown1();
     }
+    @Test
+    void testPrintMenu() {
+        // Arrange
+        String expectedMenu = "--------Welcome to Address Book---------\n" +
+                "Enter '1' to Add contact\n" +
+                "Enter '2' to Search contact\n" +
+                "Enter '3' to Print contact\n" +
+                "Enter '4' to Edit contact\n" +
+                "Enter '5' to Delete contact\n" +
+                "Enter '0' to Exit\n" +
+                "Do you want to print contacts, add contact, search for contact, edit contact, or delete contact?\n" +
+                "Answer with '1', '2', '3', '4', '5' or '0' to exit application.";
+
+        String input = "0\n";  // Simulate user entering '0' to exit
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        // Act
+        try {
+            Main.main(new String[]{});
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        // Assert
+        String actualOutput = outputStream.toString().trim();
+        assertTrue(actualOutput.contains(expectedMenu),
+                "Expected menu:\n" + expectedMenu + "\nActual output:\n" + actualOutput);
+    }
 }
